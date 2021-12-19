@@ -1,0 +1,401 @@
+ public class Pattern {
+    
+    public static void pyramidStarOneSpaceShifted(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.print(" ");
+            for (int j = 0; j < n - i - 1; j++) {
+                System.out.print(" ");
+            }
+            for(int j = 0; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    public static void reversePyramidStar(int n) {
+        for (int i = n; i >= 1; i--) {
+            for (int j = 0; j < n - i; j++) {
+                System.out.print(" ");
+            }
+            for(int j = 0; j < i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void reversePyramidNumber1(int n) {
+        for (int i = n; i >= 1; i--) {
+            for (int j = 0; j < n - i; j++) {
+                System.out.print(" ");
+            }
+            for(int j = 0; j < i; j++) {
+                System.out.print(n - i + 1 + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void reversePyramidNumber2(int n) {
+        for (int i = n; i >= 1; i--) {
+            for (int j = 0; j < n - i; j++) {
+                System.out.print(" ");
+            }
+            for(int j = 0; j < i; j++) {
+                System.out.print(n - i + 1 + j + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void diamond(int n) {
+        pyramidStarOneSpaceShifted(n - 1);
+        reversePyramidStar(n);
+    }
+}
+    public class Maths {
+    public static long multiply(long x, long y) { return x * y; }
+    public static float multiply(float x, float y) { return x * y; }
+    public static int multiply(int x, int y) { return x * y; }
+    public static int max(int a, int b) {
+        return a > b ? a : b;
+    }
+    public static int max(int a, int b, int c) {
+        return max(a, max(b, c));
+    }
+    public static int max(int a, int b, int c, int d) {
+        return max(a, max(b, c, d));
+    }
+}
+ import java.util.*;
+public class Numbers {
+    private static Scanner sc = new Scanner(System.in);
+    public static void noOfDigits() {
+        int n = sc.nextInt();
+        System.out.println(noOfDigits(n));
+    }
+    
+    public static void factorial() {
+        int n = 0;
+        long result = 1;
+        do {
+            System.out.println("Enter a number: ");
+            n = sc.nextInt();
+            sc.nextLine();
+            for (int i = 1; i <= n; i++) {
+                result *= i;
+            }
+            System.out.println("Factorial of " + n + " is " + result);
+            System.out.println("Enter YES to continue: ");
+        } while ("YES".equalsIgnoreCase(sc.nextLine()));
+    }
+    
+    public static void isOddOrEven(int n) {
+        System.out.println(n + " is " + ((n & 1) == 1 ? "ODD" : "EVEN"));
+    }
+    
+    public static int noOfDigits(int n) {
+        if (n / 10 == 0) return 1;
+        int res = 0;
+        while (n != 0) {
+            res++;
+            n /= 10;
+        }
+        return res;
+    }
+}
+
+ import java.util.*;
+public class Courses{
+    public static String[][][] courses = new String[][][]{
+        {
+            {"English", "Maths", "Science"}
+            
+        }, 
+        {
+            {"Operating System", "Java", "Data Structure"}, 
+            {"Micro Processors", "Logic Switching Theory"}, 
+            {"Drawing", "Manufacturing Machines"}
+            
+        }, 
+        {
+            {"Computer Organization", "Multimedia"},
+            {"Fundamentals of Logic Design", "Microelectronics"},
+            {"Internal Combustion Engines", "Mechanical Vibrations"}
+        },
+        {
+            {"Data Communication and Networks", "Multimedia"},
+            {"Embedded System", "Image Processing"},
+            {"Production Technology", "Thermal Engineering"}
+        }
+    };
+    
+    private static int getCourseIndex(String course) {
+        switch(course) {
+            case "CSE":
+                return 0;
+            case "ECE":
+                return 1;
+            case "MEC":
+                return 2;
+            default:
+                return -1;
+        }
+    }
+
+    
+    public static void getCourses(String course, int year) {
+        String courseArr[] = year == 1 ? courses[0][0] : courses[year - 1][getCourseIndex(course)];
+        System.out.println(Arrays.asList(courseArr));
+    }
+    
+    public static void printGrades(int score) {
+        String result = null;
+        if (score < 50) result = "fail";
+        else if (score < 60) result = "D grade";
+        else if (score < 70) result = "C grade";
+        else if (score < 80) result = "B grade";
+        else if (score < 90) result = "A grade";
+        else if (score <= 100) result = "A+ grade";
+        else result = "Invalid";
+        System.out.println(result);
+    }
+    
+    public static int greatestOf2No(int a, int b) {
+        return a > b ? a : b;
+    }
+    
+    public static int greatestOf3No(int a, int b, int c) {
+        return a > b ? a > c ? a : c : b > c ? b : c;
+    }
+    
+    public static int numberOfDigits(int n) {
+        if (n / 10 == 0) return 1;
+        int res = 0;
+        while (n != 0) {
+            res++;
+            n /= 10;
+        }
+        return res;
+    }
+
+    public static int performOps(int a, int b, char op) {
+        int res = 0;
+        switch(op) {
+            case '+': res = a + b;
+            break;
+            case '-': res = a - b;
+            break;
+            case '*': res = a * b;
+            break;
+            case '/': res = a / b;
+            break;
+            default: res = Integer.MAX_VALUE;
+        }
+        return res;
+    }
+    
+    public static void relationshipOf2Numbers(int a, int b) {
+        if (a == b) System.out.println(a + " is equal to " + b);
+        else if(a < b) System.out.println(a + " is less than " + b);
+        else System.out.println(a + " is more than " + b);
+    } 
+    
+    public static int sumOfElementsInArray(int nums[]) {
+        int sum = 0;
+        for (int num : nums) sum += num;
+        return sum;
+    }
+    
+    public static String middleOfElementsInArray(int nums[]) {
+        return nums.length % 2 == 1 ? ("" + nums[nums.length / 2]) : (nums[nums.length / 2 - 1] + " " + nums[nums.length / 2]);
+    }
+    
+    public static void printAllPositiveNumbersInArray(int nums[]) {
+        for (int num : nums) {
+            if (num > 0) System.out.println(num);
+        }
+    }
+    
+    public static int differenceInTwoArrays(int[] a, int[] b) {
+        int sumA = 0, sumB = 0;
+        for (int x : a) sumA += x;
+        for (int y : b) sumB += y;
+        return Math.abs(sumA-sumB);
+    }
+    
+    public static int binaryToDecimal(int n) {
+        int res = 0, place = 0;
+        while (n != 0) {
+            res += (1 << (place++)) * (n % 10);
+            n /= 10;
+        }
+        return res;
+    }
+    
+    public static void addTwo2DMatrix(int[][] a, int[][] b) {
+        int rows = a.length, cols = a[0].length;
+        if (rows != b.length || cols != b[0].length) {
+            System.out.println("Invalid matrices");
+            return;
+        }
+        int[][] c = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                c[i][j] = a[i][j] + b[i][j];
+            }
+        }
+        for (int j = 0; j < cols; j++) {
+            for (int i = 0; i < rows; i++) {
+                System.out.print(c[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static boolean isSparseMatrix(int[][] m) {
+        int zeros = 0, rows = m.length, cols = m[0].length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (m[i][j] == 0) zeros++;
+            }
+        }
+        return zeros > rows * cols / 2;
+    }
+    
+    public static void printFrequencyOfOddAndEvenNumbers(int[][] m) {
+        int rows = m.length, cols = m[0].length, even = 0, odd = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (m[i][j] % 2 == 0) even++;
+                else odd++;
+            }
+        }
+        System.out.print("Frequency of odd: " + odd + "\n Frequency of even: " + even);
+    }
+    
+    public static void main(String[] args) {
+        System.out.print();
+    }
+
+}
+    public class Animal {
+    private String breed;
+    private String sound;
+    
+    public Animal() {}
+    public Animal(String breed) {
+        this.breed = breed;
+    }
+    
+    public Animal(String breed, String sound) {
+        this(breed);
+        this.sound = sound;
+    }
+    
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+    
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+    
+    public String getSound() {
+        return sound;
+    }
+    
+    public String getBreed() {
+        return breed;
+    }
+    
+    @Override
+    public String toString() {
+        return "[breed=" + breed + ", sound=" + sound + "]";
+    }
+    
+    
+    public static void main(String[] args) {
+        Animal dog = new Animal();
+        dog.setSound("Bark");
+        dog.setBreed("Dog");
+        Animal cow = new Animal("Cow", "Moo");
+        Animal elephant = new Animal("Elephant");
+        elephant.setSound("Trumpet");
+        System.out.println(dog + "\n" + cow + "\n" + elephant);
+    }
+}
+    public class Vehicle {
+    private String brand;
+    private int maxSpeed;
+    private int numberOfWheels;
+    
+    public Vehicle() {}
+    public Vehicle(String brand, int maxSpeed, int numberOfWheels) {
+        this.brand = brand;
+        this.maxSpeed = maxSpeed;
+        this.numberOfWheels = numberOfWheels;
+    }
+    
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+    
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+    
+    public void setNumberOfWheels(int numberOfWheels) {
+        this.numberOfWheels = numberOfWheels;
+    }
+    
+    public int getNumberOfWheels() {
+        return numberOfWheels;
+    }
+    
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+    
+    public String getBrand() {
+        return brand;
+    }
+    
+    @Override
+    public String toString() {
+        return "[brand=" + brand + ", maxSpeed=" + maxSpeed + ", numberOfWheels=" + numberOfWheels + "]";
+    }
+    
+    
+    public static void main(String[] args) {
+        Vehicle bike = new Vehicle();
+        bike.setBrand("Pulsar");
+        bike.setMaxSpeed(200);
+        bike.setNumberOfWheels(2);
+        Vehicle car = new Vehicle("Audi", 500, 4);
+        Vehicle trek = new Vehicle("Trek", 100, 0);
+        System.out.println(bike + "\n" + car + "\n" + trek);
+    }
+}
+    public class Increment{
+    private static int age = 0;
+    
+    public void incrementAge() { age++; }
+    
+    public void print() {
+        System.out.println(age);
+    }
+    
+    public static void main(String[] args) {
+        Increment ob1 = new Increment();
+        ob1.incrementAge();
+        ob1.print();
+        Increment ob2 = new Increment();
+        ob2.incrementAge();
+        ob2.print();
+        Increment ob3 = new Increment();
+        ob3.incrementAge();
+        ob3.print();
+    } 
+}
+
